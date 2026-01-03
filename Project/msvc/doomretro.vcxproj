@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>doomretro</ProjectName>
+    <ProjectGuid>{8B744A3B-8F18-41A0-85A3-293816E85B6E}</ProjectGuid>
+    <RootNamespace>DoomRetro</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <IntDirSharingDetected>None</IntDirSharingDetected>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfAtl>false</UseOfAtl>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfAtl>false</UseOfAtl>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.14.36623.8</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">doomretro</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DOOM Screen Saver</TargetName>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <IncludePath>..\msvc\SDL_Libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\msvc\SDL_Libs;$(LibraryPath)</LibraryPath>
+    <TargetExt>.scr</TargetExt>
+    <CustomBuildBeforeTargets>BuildLink</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ExecutablePath>$(ExecutablePath);$(MSBuildFrameworkToolsPath32);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ExecutablePath>$(ExecutablePath);$(MSBuildFrameworkToolsPath32);</ExecutablePath>
+    <IncludePath>..\msvc\SDL_Libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\msvc\SDL_Libs;$(LibraryPath)</LibraryPath>
+    <TargetName>DOOM Screen Saver</TargetName>
+    <TargetExt>.scr</TargetExt>
+    <CustomBuildBeforeTargets>BuildLink</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\SDL2-2.32.10\include;$(ProjectDir)..\SDL2_mixer-2.8.1\include;$(ProjectDir)..\SDL2_image-2.8.8\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ExpandAttributedSource>true</ExpandAttributedSource>
+      <AssemblerOutput>All</AssemblerOutput>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2main.lib;winhttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)doomretro.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateMapFile>false</GenerateMapFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\SDL2-2.32.10\lib\x86;$(ProjectDir)..\SDL2_mixer-2.8.1\lib\x86;$(ProjectDir)..\SDL2_image-2.8.8\lib\x86</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ResourceCompile>
+    <Manifest>
+      <AdditionalManifestFiles>..\src\doomretro.manifest</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\res\$(ProjectName).wad" "$(OutDir)$(ProjectName).wad"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\SDL2-2.32.10\include;$(ProjectDir)..\SDL2_mixer-2.8.1\include;$(ProjectDir)..\SDL2_image-2.8.8\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ExpandAttributedSource>true</ExpandAttributedSource>
+      <AssemblerOutput>All</AssemblerOutput>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <BrowseInformation>true</BrowseInformation>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2_image.lib;Imm32.lib;SetupAPI.lib;Version.lib;winmm.lib;Msimg32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DOOM Screen Saver.scr</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <GenerateMapFile>false</GenerateMapFile>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ResourceCompile>
+    <Manifest>
+      <AdditionalManifestFiles>..\src\doomretro.manifest</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\SDL2-2.32.10\include;$(ProjectDir)..\SDL2_mixer-2.8.1\include;$(ProjectDir)..\SDL2_image-2.8.8\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_MSC_PLATFORM_TOOLSET=$(PlatformToolsetVersion);WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AssemblerOutput>All</AssemblerOutput>
+      <EnablePREfast>false</EnablePREfast>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <CallingConvention>Cdecl</CallingConvention>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalOptions>/GA /GF /Gs %(AdditionalOptions)</AdditionalOptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <BrowseInformation>true</BrowseInformation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2main.lib;winhttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)doomretro.exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <ShowProgress>NotSet</ShowProgress>
+      <EnableUAC>false</EnableUAC>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>false</MapExports>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\SDL2-2.32.10\lib\x86;$(ProjectDir)..\SDL2_mixer-2.8.1\lib\x86;$(ProjectDir)..\SDL2_image-2.8.8\lib\x86</AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>..\src\doomretro.manifest</AdditionalManifestFiles>
+      <EnableDPIAwareness>true</EnableDPIAwareness>
+    </Manifest>
+    <ResourceCompile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\res\$(ProjectName).wad" "$(OutDir)$(ProjectName).wad"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_MSC_PLATFORM_TOOLSET=$(PlatformToolsetVersion);WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AssemblerOutput>All</AssemblerOutput>
+      <EnablePREfast>false</EnablePREfast>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <CallingConvention>Cdecl</CallingConvention>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalOptions>/GA /GF /Gs /Ob3 %(AdditionalOptions)</AdditionalOptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <BrowseInformation>true</BrowseInformation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2_image.lib;Imm32.lib;SetupAPI.lib;Version.lib;winmm.lib;Msimg32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DOOM Screen Saver.scr</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <ShowProgress>NotSet</ShowProgress>
+      <EnableUAC>false</EnableUAC>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>false</MapExports>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>..\src\doomretro.manifest</AdditionalManifestFiles>
+      <EnableDPIAwareness>true</EnableDPIAwareness>
+    </Manifest>
+    <ResourceCompile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\am_map.h" />
+    <ClInclude Include="..\src\cJSON\cJSON.h" />
+    <ClInclude Include="..\src\c_cmds.h" />
+    <ClInclude Include="..\src\c_console.h" />
+    <ClInclude Include="..\src\d_deh.h" />
+    <ClInclude Include="..\src\d_english.h" />
+    <ClInclude Include="..\src\d_event.h" />
+    <ClInclude Include="..\src\d_items.h" />
+    <ClInclude Include="..\src\d_iwad.h" />
+    <ClInclude Include="..\src\d_loop.h" />
+    <ClInclude Include="..\src\d_main.h" />
+    <ClInclude Include="..\src\d_player.h" />
+    <ClInclude Include="..\src\d_think.h" />
+    <ClInclude Include="..\src\d_ticcmd.h" />
+    <ClInclude Include="..\src\doomdata.h" />
+    <ClInclude Include="..\src\doomdef.h" />
+    <ClInclude Include="..\src\doomkeys.h" />
+    <ClInclude Include="..\src\doomstat.h" />
+    <ClInclude Include="..\src\doomtype.h" />
+    <ClInclude Include="..\src\dstrings.h" />
+    <ClInclude Include="..\src\f_finale.h" />
+    <ClInclude Include="..\src\f_wipe.h" />
+    <ClInclude Include="..\src\g_game.h" />
+    <ClInclude Include="..\src\hu_lib.h" />
+    <ClInclude Include="..\src\hu_stuff.h" />
+    <ClInclude Include="..\src\i_colors.h" />
+    <ClInclude Include="..\src\i_controller.h" />
+    <ClInclude Include="..\src\i_swap.h" />
+    <ClInclude Include="..\src\i_system.h" />
+    <ClInclude Include="..\src\i_timer.h" />
+    <ClInclude Include="..\src\i_video.h" />
+    <ClInclude Include="..\src\info.h" />
+    <ClInclude Include="..\src\i_winmusic.h" />
+    <ClInclude Include="..\src\md5.h" />
+    <ClInclude Include="..\src\memio.h" />
+    <ClInclude Include="..\src\midifile.h" />
+    <ClInclude Include="..\src\miniz\miniz.h" />
+    <ClInclude Include="..\src\m_argv.h" />
+    <ClInclude Include="..\src\m_array.h" />
+    <ClInclude Include="..\src\m_bbox.h" />
+    <ClInclude Include="..\src\m_cheat.h" />
+    <ClInclude Include="..\src\m_config.h" />
+    <ClInclude Include="..\src\m_controls.h" />
+    <ClInclude Include="..\src\m_fixed.h" />
+    <ClInclude Include="..\src\m_font.h" />
+    <ClInclude Include="..\src\m_menu.h" />
+    <ClInclude Include="..\src\m_misc.h" />
+    <ClInclude Include="..\src\m_random.h" />
+    <ClInclude Include="..\src\mus2mid.h" />
+    <ClInclude Include="..\src\nuklear.h" />
+    <ClInclude Include="..\src\p_fix.h" />
+    <ClInclude Include="..\src\p_inter.h" />
+    <ClInclude Include="..\src\p_local.h" />
+    <ClInclude Include="..\src\p_mobj.h" />
+    <ClInclude Include="..\src\p_pspr.h" />
+    <ClInclude Include="..\src\p_saveg.h" />
+    <ClInclude Include="..\src\p_setup.h" />
+    <ClInclude Include="..\src\p_spec.h" />
+    <ClInclude Include="..\src\p_tick.h" />
+    <ClInclude Include="..\src\r_bsp.h" />
+    <ClInclude Include="..\src\r_data.h" />
+    <ClInclude Include="..\src\r_defs.h" />
+    <ClInclude Include="..\src\r_draw.h" />
+    <ClInclude Include="..\src\r_local.h" />
+    <ClInclude Include="..\src\r_main.h" />
+    <ClInclude Include="..\src\r_patch.h" />
+    <ClInclude Include="..\src\r_plane.h" />
+    <ClInclude Include="..\src\r_segs.h" />
+    <ClInclude Include="..\src\r_sky.h" />
+    <ClInclude Include="..\src\r_skydefs.h" />
+    <ClInclude Include="..\src\r_state.h" />
+    <ClInclude Include="..\src\r_things.h" />
+    <ClInclude Include="..\src\s_sound.h" />
+    <ClInclude Include="..\src\sc_man.h" />
+    <ClInclude Include="..\src\sounds.h" />
+    <ClInclude Include="..\src\sprites.h" />
+    <ClInclude Include="..\src\st_lib.h" />
+    <ClInclude Include="..\src\st_stuff.h" />
+    <ClInclude Include="..\src\states.h" />
+    <ClInclude Include="..\src\tables.h" />
+    <ClInclude Include="..\src\v_data.h" />
+    <ClInclude Include="..\src\v_video.h" />
+    <ClInclude Include="..\src\version.h" />
+    <ClInclude Include="..\src\wi_interlvl.h" />
+    <ClInclude Include="..\src\w_file.h" />
+    <ClInclude Include="..\src\w_merge.h" />
+    <ClInclude Include="..\src\w_wad.h" />
+    <ClInclude Include="..\src\wi_stuff.h" />
+    <ClInclude Include="..\src\z_zone.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\am_map.c" />
+    <ClCompile Include="..\src\cJSON\cJSON.c" />
+    <ClCompile Include="..\src\c_autocomplete.c" />
+    <ClCompile Include="..\src\c_cmds.c" />
+    <ClCompile Include="..\src\c_console.c" />
+    <ClCompile Include="..\src\d_deh.c" />
+    <ClCompile Include="..\src\d_items.c" />
+    <ClCompile Include="..\src\d_iwad.c" />
+    <ClCompile Include="..\src\d_loop.c" />
+    <ClCompile Include="..\src\d_main.c" />
+    <ClCompile Include="..\src\doomretro.c" />
+    <ClCompile Include="..\src\doomstat.c" />
+    <ClCompile Include="..\src\dstrings.c" />
+    <ClCompile Include="..\src\f_finale.c" />
+    <ClCompile Include="..\src\f_wipe.c" />
+    <ClCompile Include="..\src\g_game.c" />
+    <ClCompile Include="..\src\hu_lib.c" />
+    <ClCompile Include="..\src\hu_stuff.c" />
+    <ClCompile Include="..\src\i_colors.c" />
+    <ClCompile Include="..\src\i_controller.c" />
+    <ClCompile Include="..\src\i_music.c" />
+    <ClCompile Include="..\src\i_sound.c" />
+    <ClCompile Include="..\src\i_system.c" />
+    <ClCompile Include="..\src\i_timer.c" />
+    <ClCompile Include="..\src\i_video.c" />
+    <ClCompile Include="..\src\info.c" />
+    <ClCompile Include="..\src\i_winmusic.c" />
+    <ClCompile Include="..\src\md5.c" />
+    <ClCompile Include="..\src\memio.c" />
+    <ClCompile Include="..\src\midifile.c" />
+    <ClCompile Include="..\src\miniz\miniz.c" />
+    <ClCompile Include="..\src\m_argv.c" />
+    <ClCompile Include="..\src\m_bbox.c" />
+    <ClCompile Include="..\src\m_cheat.c" />
+    <ClCompile Include="..\src\m_config.c" />
+    <ClCompile Include="..\src\m_controls.c" />
+    <ClCompile Include="..\src\m_font.c" />
+    <ClCompile Include="..\src\m_menu.c" />
+    <ClCompile Include="..\src\m_misc.c" />
+    <ClCompile Include="..\src\m_random.c" />
+    <ClCompile Include="..\src\mus2mid.c" />
+    <ClCompile Include="..\src\p_ceiling.c" />
+    <ClCompile Include="..\src\p_doors.c" />
+    <ClCompile Include="..\src\p_enemy.c" />
+    <ClCompile Include="..\src\p_fix.c" />
+    <ClCompile Include="..\src\p_floor.c" />
+    <ClCompile Include="..\src\p_genlin.c" />
+    <ClCompile Include="..\src\p_inter.c" />
+    <ClCompile Include="..\src\p_lights.c" />
+    <ClCompile Include="..\src\p_map.c" />
+    <ClCompile Include="..\src\p_maputl.c" />
+    <ClCompile Include="..\src\p_mobj.c" />
+    <ClCompile Include="..\src\p_plats.c" />
+    <ClCompile Include="..\src\p_pspr.c" />
+    <ClCompile Include="..\src\p_saveg.c" />
+    <ClCompile Include="..\src\p_setup.c" />
+    <ClCompile Include="..\src\p_sight.c" />
+    <ClCompile Include="..\src\p_spec.c" />
+    <ClCompile Include="..\src\p_switch.c" />
+    <ClCompile Include="..\src\p_telept.c" />
+    <ClCompile Include="..\src\p_tick.c" />
+    <ClCompile Include="..\src\p_user.c" />
+    <ClCompile Include="..\src\r_bsp.c" />
+    <ClCompile Include="..\src\r_data.c" />
+    <ClCompile Include="..\src\r_draw.c" />
+    <ClCompile Include="..\src\r_main.c" />
+    <ClCompile Include="..\src\r_patch.c" />
+    <ClCompile Include="..\src\r_plane.c" />
+    <ClCompile Include="..\src\r_segs.c" />
+    <ClCompile Include="..\src\r_sky.c" />
+    <ClCompile Include="..\src\r_skydefs.c" />
+    <ClCompile Include="..\src\r_things.c" />
+    <ClCompile Include="..\src\SDL_windows_main.c" />
+    <ClCompile Include="..\src\s_sound.c" />
+    <ClCompile Include="..\src\sc_man.c" />
+    <ClCompile Include="..\src\sounds.c" />
+    <ClCompile Include="..\src\sprites.c" />
+    <ClCompile Include="..\src\st_lib.c" />
+    <ClCompile Include="..\src\st_stuff.c" />
+    <ClCompile Include="..\src\states.c" />
+    <ClCompile Include="..\src\version.c" />
+    <ClCompile Include="..\src\v_data.c" />
+    <ClCompile Include="..\src\v_video.c" />
+    <ClCompile Include="..\src\wi_interlvl.c" />
+    <ClCompile Include="..\src\w_file.c" />
+    <ClCompile Include="..\src\w_merge.c" />
+    <ClCompile Include="..\src\w_wad.c" />
+    <ClCompile Include="..\src\wi_stuff.c" />
+    <ClCompile Include="..\src\z_zone.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\WAD\DOOM_WAD.dat" />
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
+    <None Include="..\CODEOWNERS" />
+    <None Include="..\LICENSE.md" />
+    <None Include="..\res\BRGHTMPS.lmp" />
+    <None Include="..\res\CHEXBEX.lmp" />
+    <None Include="..\res\DEHACKED.lmp" />
+    <None Include="..\res\doomretro.ico" />
+    <None Include="..\res\doomretro.wad" />
+    <None Include="..\res\DOOM_WAD.dat" />
+    <None Include="..\res\DRCOMPAT.lmp" />
+    <None Include="..\res\VANILLA.lmp" />
+    <None Include="..\xcode\doomretroapp\Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="doomretro.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\res\DOOM_Scr.ico" />
+    <Image Include="..\res\Face_1.bmp" />
+    <Image Include="..\res\Face_2.bmp" />
+    <Image Include="..\res\Face_3.bmp" />
+    <Image Include="..\res\Face_4.bmp" />
+    <Image Include="..\res\Face_5.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

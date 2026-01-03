@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8
+MinimumVisualStudioVersion = 17.0.31903.59
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doomretro", "doomretro.vcxproj", "{8B744A3B-8F18-41A0-85A3-293816E85B6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|64-bit = Debug|64-bit
+		Release|64-bit = Release|64-bit
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B744A3B-8F18-41A0-85A3-293816E85B6E}.Debug|64-bit.ActiveCfg = Debug|x64
+		{8B744A3B-8F18-41A0-85A3-293816E85B6E}.Debug|64-bit.Build.0 = Debug|x64
+		{8B744A3B-8F18-41A0-85A3-293816E85B6E}.Release|64-bit.ActiveCfg = Release|x64
+		{8B744A3B-8F18-41A0-85A3-293816E85B6E}.Release|64-bit.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5039E744-08F8-42B5-9C1F-F9987068DB65}
+	EndGlobalSection
+EndGlobal
