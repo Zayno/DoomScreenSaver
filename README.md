@@ -27,3 +27,10 @@ Download the file "DOOM Screen Saver.scr", then right-click on it and select Ins
 [![Watch the video](https://img.youtube.com/vi/nRtLlcLHI4U/maxresdefault.jpg)](https://youtu.be/nRtLlcLHI4U)
 
 ### [Watch this video on YouTube](https://youtu.be/nRtLlcLHI4U)
+
+
+## Building Visual Studio Project:
+The project needs DOOM WAD file. I can not redistribute that file. The one I used is 11.8 MB and has the following SHA256 Checksum:
+6fdf361847b46228cfebd9f3af09cd844282ac75f3edbb61ca4cb27103ce2e7f
+
+Other than that it should be easy to open the solution and build.
