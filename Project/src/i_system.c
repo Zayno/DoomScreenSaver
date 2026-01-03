@@ -1,0 +1,298 @@
+
+
+#include <Windows.h>
+
+#include "c_console.h"
+#include "d_main.h"
+#include "doomstat.h"
+#include "i_controller.h"
+#include "i_system.h"
+#include "m_config.h"
+#include "m_misc.h"
+#include "s_sound.h"
+#include "version.h"
+#include "w_wad.h"
+
+#define PRODUCT_CORE        0x00000065
+#define PRODUCT_EDUCATION   0x00000079
+
+typedef long    (__stdcall *PRTLGETVERSION)(PRTL_OSVERSIONINFOEXW);
+typedef BOOL    (WINAPI *PGETPRODUCTINFO)(DWORD, DWORD, DWORD, DWORD, PDWORD);
+typedef BOOL    (WINAPI *PISWOW64PROCESS)(HANDLE, PBOOL);
+
+void I_PrintWindowsVersion(void)
+{
+    PRTLGETVERSION  pRtlGetVersion = (PRTLGETVERSION)GetProcAddress(GetModuleHandle("ntdll.dll"), "RtlGetVersion");
+    PGETPRODUCTINFO pGetProductInfo = (PGETPRODUCTINFO)GetProcAddress(GetModuleHandle("kernel32.dll"), "GetProductInfo");
+    PISWOW64PROCESS pIsWow64Process = (PISWOW64PROCESS)GetProcAddress(GetModuleHandle("kernel32.dll"), "IsWow64Process");
+
+    if (pRtlGetVersion && pGetProductInfo)
+    {
+        int                 bits = 32;
+        char                typename[32] = "";
+        OSVERSIONINFOEXW    info;
+        DWORD               type;
+
+        if (pIsWow64Process)
+        {
+            BOOL    Wow64Process = FALSE;
+
+            pIsWow64Process(GetCurrentProcess(), &Wow64Process);
+
+            if (Wow64Process || sizeof(intptr_t) == 8)
+                bits = 64;
+        }
+
+        ZeroMemory(&info, sizeof(OSVERSIONINFOEXW));
+        info.dwOSVersionInfoSize = sizeof(RTL_OSVERSIONINFOEXW);
+
+        pRtlGetVersion((PRTL_OSVERSIONINFOEXW)&info);
+
+        pGetProductInfo(info.dwMajorVersion, info.dwMinorVersion, 0, 0, &type);
+
+        switch (type)
+        {
+            case PRODUCT_ULTIMATE:
+                M_StringCopy(typename, "Ultimate", sizeof(typename));
+                break;
+
+            case PRODUCT_PROFESSIONAL:
+                M_StringCopy(typename, "Professional", sizeof(typename));
+                break;
+
+            case PRODUCT_HOME_PREMIUM:
+                M_StringCopy(typename, "Home Premium", sizeof(typename));
+                break;
+
+            case PRODUCT_HOME_BASIC:
+                M_StringCopy(typename, "Home Basic", sizeof(typename));
+                break;
+
+            case PRODUCT_ENTERPRISE:
+            case PRODUCT_ENTERPRISE_SERVER:
+            case PRODUCT_ENTERPRISE_SERVER_CORE:
+            case PRODUCT_ENTERPRISE_SERVER_IA64:
+                M_StringCopy(typename, "Enterprise", sizeof(typename));
+                break;
+
+            case PRODUCT_BUSINESS:
+                M_StringCopy(typename, "Business", sizeof(typename));
+                break;
+
+            case PRODUCT_STARTER:
+                M_StringCopy(typename, "Starter", sizeof(typename));
+                break;
+
+            case PRODUCT_CLUSTER_SERVER:
+                M_StringCopy(typename, "Cluster Server", sizeof(typename));
+                break;
+
+            case PRODUCT_DATACENTER_SERVER:
+            case PRODUCT_DATACENTER_SERVER_CORE:
+                M_StringCopy(typename, "Datacenter Edition", sizeof(typename));
+                break;
+
+            case PRODUCT_SMALLBUSINESS_SERVER:
+                M_StringCopy(typename, "Small Business Server", sizeof(typename));
+                break;
+
+            case PRODUCT_SMALLBUSINESS_SERVER_PREMIUM:
+                M_StringCopy(typename, "Small Business Server Premium", sizeof(typename));
+                break;
+
+            case PRODUCT_STANDARD_SERVER:
+            case PRODUCT_STANDARD_SERVER_CORE:
+                M_StringCopy(typename, "Standard", sizeof(typename));
+                break;
+
+            case PRODUCT_WEB_SERVER:
+                M_StringCopy(typename, "Web Server", sizeof(typename));
+                break;
+
+            case PRODUCT_CORE:
+                M_StringCopy(typename, "Home", sizeof(typename));
+                break;
+        }
+
+        if (info.dwPlatformId == VER_PLATFORM_WIN32_NT)
+        {
+            char    infoname[32] = "NT";
+            char    *build = commify(info.dwBuildNumber);
+
+            if (info.dwMajorVersion == 5)
+            {
+                if (info.dwMinorVersion == 0)
+                    M_StringCopy(infoname, "2000", sizeof(infoname));
+                else if (info.dwMinorVersion == 1)
+                    M_StringCopy(infoname, "XP", sizeof(infoname));
+                else if (info.dwMinorVersion == 2)
+                    M_StringCopy(infoname, "Server 2003", sizeof(infoname));
+            }
+            else if (info.dwMajorVersion == 6)
+            {
+                if (info.dwMinorVersion == 0)
+                    M_StringCopy(infoname, (info.wProductType == VER_NT_WORKSTATION ? "Vista" : "Server 2008"), sizeof(infoname));
+                else if (info.dwMinorVersion == 1)
+                    M_StringCopy(infoname, (info.wProductType == VER_NT_WORKSTATION ? "7" : "Server 2008 R2"), sizeof(infoname));
+                else if (info.dwMinorVersion == 2)
+                    M_StringCopy(infoname, (info.wProductType == VER_NT_WORKSTATION ? "8" : "Server 2012"), sizeof(infoname));
+                else if (info.dwMinorVersion == 3)
+                    M_StringCopy(infoname, "8.1", sizeof(infoname));
+            }
+            else if (info.dwMajorVersion == 10)
+            {
+                if (info.dwBuildNumber < 22000)
+                    M_StringCopy(infoname, (info.wProductType == VER_NT_WORKSTATION ? "10" : "Server 2016"), sizeof(infoname));
+                else
+                {
+                    M_StringCopy(infoname, (info.wProductType == VER_NT_WORKSTATION ? "11" : "Server 2022"), sizeof(infoname));
+
+                    if (!*typename)
+                        switch (type)
+                        {
+                            case PRODUCT_PROFESSIONAL:
+                                M_StringCopy(typename, "Pro", sizeof(typename));
+                                break;
+
+                            case PRODUCT_ENTERPRISE:
+                                M_StringCopy(typename, "Enterprise", sizeof(typename));
+                                break;
+
+                            case PRODUCT_EDUCATION:
+                                M_StringCopy(typename, "Education", sizeof(typename));
+                                break;
+
+                            case PRODUCT_CORE:
+                                M_StringCopy(typename, "Home", sizeof(typename));
+                                break;
+                        }
+                }
+            }
+
+            if (wcslen(info.szCSDVersion) > 0)
+                C_Output("It is running on the %i-bit edition of " ITALICS("Microsoft Windows %s%s%s (%ws)") " (Build %s).",
+                    bits, infoname, (*typename ? " " : ""), typename, info.szCSDVersion, build);
+            else if (info.dwMajorVersion < 10 || info.dwBuildNumber < 22000)
+                C_Output("It is running on the %i-bit edition of " ITALICS("Microsoft Windows %s%s%s") " (Build %s).",
+                    bits, infoname, (*typename ? " " : ""), typename, build);
+            else
+                C_Output("It is running on " ITALICS("Microsoft Windows %s%s%s") " (Build %s).",
+                    infoname, (*typename ? " " : ""), typename, build);
+
+            free(build);
+        }
+
+        if (bits == 64 && sizeof(intptr_t) == 4)
+            C_Warning(1, "The 64-bit version of " ITALICS(DOOMRETRO_NAME) " is recommended on this PC.");
+    }
+}
+
+void I_PrintSystemInfo(void)
+{
+    const int   cores = SDL_GetCPUCount();
+    char        *RAM = commify(SDL_GetSystemRAM() / 1000);
+
+    C_Output("There %s %i core%s and %sGB of RAM on this " DEVICE ".",
+        (cores == 1 ? "is" : "are"), cores, (cores == 1 ? "" : "s"), RAM);
+    free(RAM);
+}
+
+//
+// I_Quit
+//
+void I_Quit(bool shutdown)
+{
+    if (shutdown)
+    {
+
+        S_Shutdown();
+
+        
+
+        I_ShutdownKeyboard();
+        I_ShutdownController();
+        I_ShutdownGraphics();
+        SDL_Quit();
+    }
+
+    W_CloseFiles();
+
+    I_ShutdownWindows32();
+
+    exit(0);
+}
+
+//
+// I_Error
+//
+void I_Error(const char *error, ...)
+{
+    va_list     args;
+    char        buffer[512];
+    static bool already_quitting;
+
+    if (already_quitting)
+        exit(-1);
+
+    already_quitting = true;
+
+    // Shutdown. Here might be other errors.
+    S_Shutdown();
+
+    if (previouswad && gamestate <= GS_TITLESCREEN)
+        wad = M_StringDuplicate(previouswad);
+
+    
+
+    I_ShutdownKeyboard();
+    I_ShutdownController();
+    I_ShutdownGraphics();
+
+    W_CloseFiles();
+
+    I_ShutdownWindows32();
+
+    va_start(args, error);
+    vfprintf(stderr, error, args);
+    fprintf(stderr, "\n\n");
+    va_end(args);
+    fflush(stderr);
+
+    va_start(args, error);
+    memset(buffer, 0, sizeof(buffer));
+    M_vsnprintf(buffer, sizeof(buffer) - 1, error, args);
+    va_end(args);
+
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, DOOMRETRO_NAME, buffer, NULL);
+
+    SDL_Quit();
+
+    exit(-1);
+}
+
+//
+// I_Malloc
+//
+void *I_Malloc(size_t size)
+{
+    void    *newp = malloc(size);
+
+    if (!newp && size)
+        I_Error("I_Malloc: Failure trying to allocate %zu bytes", size);
+
+    return newp;
+}
+
+//
+// I_Realloc
+//
+void *I_Realloc(void *block, size_t size)
+{
+    void    *newp = realloc(block, size);
+
+    if (!newp && size)
+        I_Error("I_Realloc: Failure trying to reallocate %zu bytes", size);
+
+    block = newp;
+    return block;
+}
